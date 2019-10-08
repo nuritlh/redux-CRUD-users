@@ -1,0 +1,7 @@
+.ui.card:first-child {
+    margin-top: 14px !important;
+}
+
+.edit-icon {
+    padding: 5px;
+}
