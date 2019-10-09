@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import  { fetchRandomUser } from '../actions';
 import UserList from './users/UserList';
 import AddUser from './users/AddUser';
-
 import './App.css';
 
 class App extends React.Component {
@@ -41,7 +40,6 @@ class App extends React.Component {
     addRandomUser = () => {
         this.props.fetchRandomUser();
     }
-
 
     render() {
         return (

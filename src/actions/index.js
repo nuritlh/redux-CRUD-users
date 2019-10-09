@@ -25,7 +25,6 @@ export const addUser =  (user) =>  async dispatch => {
     })
 };
 
-
 export const editUser =  (user) =>  async dispatch => {
     dispatch({
         type: UPDATE_USER,

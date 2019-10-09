@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import './UserModal.css';
 
-const userModal = (props) => {
+const UserModal = (props) => {
     return (
         <div className="modal">
             <div className="modal-content">
@@ -27,5 +27,5 @@ const userModal = (props) => {
     )
 }
 
-export default userModal;
+export default UserModal;
 

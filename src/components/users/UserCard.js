@@ -75,9 +75,9 @@ class UserCard extends React.Component {
             isShowingMatch: true,
             matches: matches
         })
-        console.log('matches', matches);
         
     }
+
     renderMatches = () => {
         if(this.state.isShowingMatch) {
             return (
@@ -90,6 +90,7 @@ class UserCard extends React.Component {
             )
         }
     }
+
     render() {
         return (
             <>
@@ -108,7 +109,6 @@ class UserCard extends React.Component {
                     <i className="heart icon" ></i>
                         User Matches
                     </span>
-                    
                 </div>
                 <div className="action-icon">
                     <span onClick={this.editUser}><i className="edit icon"></i></span>

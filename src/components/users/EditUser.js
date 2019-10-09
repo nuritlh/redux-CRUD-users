@@ -46,7 +46,6 @@ class EditUser extends React.Component {
         newUser['dob']['date'] = this.state.birthday;
         newUser['dob']['age'] = this.state.age;
         newUser['name']['last'] = this.state.lastName;
-        console.log('newUser',newUser);
         
         this.props.editUser(newUser);
         this.props.close();
