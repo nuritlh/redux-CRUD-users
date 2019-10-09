@@ -18,6 +18,8 @@ export const addUser =  (user) =>  async dispatch => {
 
 
 export const editUser =  (user) =>  async dispatch => {
+    console.log(user);
+    
     dispatch({
         type: UPDATE_USER,
         payload: user

@@ -11,12 +11,13 @@ class EditUser extends React.Component {
     constructor(props) {
         super(props);
          this.state ={
-            firstName: '',
-            lastName: '',
-            email: '',
-            birthday: '',
-            country: '',
-            city: '',
+            firstName: this.props.user.name.first,
+            lastName: this.props.user.name.last,
+            email: this.props.user.email,
+            birthday: this.props.user.dob.date,
+            age: this.props.user.dob.age,
+            country: this.props.user.location.country,
+            city: this.props.user.location.city,
             pictures: []
         }
          this.onDrop = this.onDrop.bind(this);
@@ -43,7 +44,9 @@ class EditUser extends React.Component {
         newUser['location']['country'] = this.state.country;
         newUser['email'] = this.state.email;
         newUser['dob']['date'] = this.state.birthday;
+        newUser['dob']['age'] = this.state.age;
         newUser['name']['last'] = this.state.lastName;
+        console.log('newUser',newUser);
         
         this.props.editUser(newUser);
         this.props.close();
@@ -80,6 +83,14 @@ class EditUser extends React.Component {
                                 onChange={this.handleChange}
                                 defaultValue={this.props.user.email}
                                 name="email"
+                                required/>
+                            <input
+                                type="number"
+                                className="form-input"
+                                placeholder="age"
+                                onChange={this.handleChange}
+                                defaultValue={this.props.user.dob.age}
+                                name="age"
                                 required/>
                             <input
                                 type="date"
