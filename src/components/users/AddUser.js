@@ -13,6 +13,7 @@ class AddUser extends React.Component {
             firstName: '',
             lastName: '',
             email: '',
+            age: '',
             birthday: '',
             country: '',
             city: '',
@@ -46,6 +47,7 @@ class AddUser extends React.Component {
             },
             email: this.state.email,
             dob: {
+                age: this.state.age,
                 date: this.state.birthday
             },
             cell: Math.random(), //should create real id..
@@ -88,6 +90,14 @@ class AddUser extends React.Component {
                                 onChange={this.handleChange}
                                 value={this.state.email}
                                 name="email"
+                                required/>
+                            <input
+                                type="number"
+                                className="form-input"
+                                placeholder="age"
+                                onChange={this.handleChange}
+                                value={this.state.age}
+                                name="age"
                                 required/>
                             <input
                                 type="date"
