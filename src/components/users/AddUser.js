@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ImageUploader from 'react-images-upload';
 
+import utils from '../../services/utils';
 import  { addUser } from '../../actions';
 import '../modal/UserModal';
 
@@ -50,7 +51,7 @@ class AddUser extends React.Component {
                 age: this.state.age,
                 date: this.state.birthday
             },
-            cell: Math.random(), //should create real id..
+            cell: utils.getId(),
             picture: {
                 large: 'http://www.esek.org.gr/images/ESET/eset_user.png'
             }
