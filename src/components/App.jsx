@@ -44,6 +44,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container"  style={{marginTop: '20px'}}>
+                <h1 className="title">Indeni Users Matches</h1>
                 <div className="actions">
                     <button className="ui primary button" onClick={this.openAddUserMoal}>New</button>
                     <button className="ui primary button" onClick={this.addRandomUser}>Random</button>

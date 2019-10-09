@@ -3,6 +3,13 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.title {
+    text-align: center;
+    font-family: cursive;
+    color: #0095ff;
+}
+
 .actions {
     display: flex;
     justify-content: center;
