@@ -34,7 +34,7 @@ function calcDuplicateChar(string) {
             charCount[string.charAt(i)] ++;
         }
     }
-    return charCount
+    return charCount;
 }
 
 function calcDuplicateInTwoStrings(myCharCount, otherCharCount) {
