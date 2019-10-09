@@ -5,3 +5,20 @@
 .action-icon {
     padding: 5px;
 }
+
+.matches-wrapper {
+    text-align: left;
+}
+
+.matches {
+    cursor: pointer;
+}
+
+.user-match {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.title-match {
+    color:orange;
+}

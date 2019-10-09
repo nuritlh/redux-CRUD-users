@@ -3,20 +3,24 @@ import { connect } from 'react-redux';
 
 import UserModal from '../modal/UserModal';
 import EditUser from './EditUser';
+import UserMatch from './UserMatch';
 import  { deleteUser } from '../../actions';
+import Sercives from '../../services';
 
 class UserCard extends React.Component {
 
     state = {
         isShowingUser: false,
-        isEditUser: false
+        isEditUser: false,
+        isShowingMatch: false,
+        matches: null
     }
 
     editUser = (event) => {
         event.preventDefault();
         this.setState({
             isEditUser: true,
-          });
+        });
     }
 
     selectUser = (event) => {
@@ -29,12 +33,12 @@ class UserCard extends React.Component {
     renderEditUser = () => {
         if(this.state.isEditUser) {
             return (
-            <EditUser
-                className="modal"
-                show={this.state.isEditUser}
-                close={this.closeModalHandler}
-                user={this.props.user}>
-            </EditUser>
+                <EditUser
+                    className="modal"
+                    show={this.state.isEditUser}
+                    close={this.closeModalHandler}
+                    user={this.props.user}>
+                </EditUser>
             )
         }
     }
@@ -42,12 +46,12 @@ class UserCard extends React.Component {
     renderUserModal = () => {
         if(this.state.isShowingUser) {
             return (
-            <UserModal
-                className="modal"
-                show={this.state.isShowingUser}
-                close={this.closeModalHandler}
-                user={this.props.user}>
-            </UserModal>
+                <UserModal
+                    className="modal"
+                    show={this.state.isShowingUser}
+                    close={this.closeModalHandler}
+                    user={this.props.user}>
+                </UserModal>
             )
         }
     }
@@ -59,11 +63,33 @@ class UserCard extends React.Component {
     closeModalHandler = () => {
         this.setState({
             isShowingUser: false,
-            isEditUser: false
-
+            isEditUser: false,
+            isShowingMatch: false
         });
     }
 
+    userMatches = (event) => {
+        const matches = Sercives.userMatches(this.props.users, this.props.user);
+        event.preventDefault();
+        this.setState({
+            isShowingMatch: true,
+            matches: matches
+        })
+        console.log('matches', matches);
+        
+    }
+    renderMatches = () => {
+        if(this.state.isShowingMatch) {
+            return (
+                <UserMatch
+                    className="modal"
+                    show={this.state.isShowingMatch}
+                    close={this.closeModalHandler}
+                    matches={this.state.matches}>
+                </UserMatch>
+            )
+        }
+    }
     render() {
         return (
             <>
@@ -78,9 +104,9 @@ class UserCard extends React.Component {
                     </div>
                 </div>
                 <div className="extra content">
-                    <span >
+                    <span className="matches" onClick={this.userMatches}>
                     <i className="heart icon" ></i>
-                    22 Matches
+                        User Matches
                     </span>
                     
                 </div>
@@ -92,6 +118,7 @@ class UserCard extends React.Component {
             </div>
             {this.renderUserModal()}
             {this.renderEditUser()}
+            {this.renderMatches()}
         </>
         )
     }

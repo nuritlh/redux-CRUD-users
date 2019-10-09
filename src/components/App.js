@@ -42,6 +42,7 @@ class App extends React.Component {
         this.props.fetchRandomUser();
     }
 
+
     render() {
         return (
             <div className="container"  style={{marginTop: '20px'}}>
