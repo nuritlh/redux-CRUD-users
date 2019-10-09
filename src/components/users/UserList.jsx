@@ -14,7 +14,7 @@ class UserList extends React.Component {
     renderList = () => {
         return this.props.users.map(user => {
             return (
-                <div className="ui four wide column card"  key={user.cell}>
+                <div className="ui card"  key={user.cell}>
                     <UserCard user={user}/>
                 </div>
             )

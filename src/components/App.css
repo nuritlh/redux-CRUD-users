@@ -1,3 +1,8 @@
+.users-wrapper {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .actions {
     display: flex;
     justify-content: center;

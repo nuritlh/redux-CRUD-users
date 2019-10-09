@@ -49,7 +49,7 @@ class App extends React.Component {
                     <button className="ui primary button" onClick={this.addRandomUser}>Random</button>
                 </div>
                 {this.renderAddUserModal()}
-                <div className="ui grid container">
+                <div className="ui container users-wrapper">
                     <UserList />
                 </div>
             </div>
