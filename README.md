@@ -1,10 +1,10 @@
-# Math memory game Home Test
+# Users Match Home Test
 
-This is a memory game that you can play with friends.
+This is a simple user application with users mathces.
 
 ## Live Demo
 
-[Demo on Heroku](https://workiz.herokuapp.com/)
+[Demo on Heroku](https://users-match.herokuapp.com)
 
 ## Dev setup
 
@@ -15,4 +15,4 @@ Run:
 ## Author
 Nuri Levi - <nuritlh@gmail.com>
 
-Repository: <https://github.com/nuritlh/workiz>
+Repository: <https://github.com/nuritlh/redux-CRUD-users>
