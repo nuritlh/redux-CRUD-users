@@ -131,7 +131,7 @@ class AddUser extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { users: state.users}
+    return { users: state.users }
 }
 
-export default connect(mapStateToProps, {addUser })(AddUser);
+export default connect(mapStateToProps, { addUser })(AddUser);

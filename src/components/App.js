@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import  { fetchRandomUser } from '../actions';
 import UserList from './users/UserList';
 import AddUser from './users/AddUser';
 
@@ -36,20 +38,28 @@ class App extends React.Component {
         });
     }
 
+    addRandomUser = () => {
+        this.props.fetchRandomUser();
+    }
+
     render() {
         return (
             <div className="container"  style={{marginTop: '20px'}}>
                 <div className="actions">
                     <button className="ui primary button" onClick={this.openAddUserMoal}>New</button>
-                    <button className="ui primary button">Random</button>
+                    <button className="ui primary button" onClick={this.addRandomUser}>Random</button>
                 </div>
                 {this.renderAddUserModal()}
                 <div className="ui grid container">
-                <UserList />
+                    <UserList />
                 </div>
             </div>
         )
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return { users: state.users}
+}
+
+export default connect(mapStateToProps, { fetchRandomUser })(App);

@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import UserModal from '../modal/UserModal';
 import EditUser from './EditUser';
+import  { deleteUser } from '../../actions';
 
 class UserCard extends React.Component {
 
@@ -50,6 +52,10 @@ class UserCard extends React.Component {
         }
     }
 
+    deleteUser = () => {
+        this.props.deleteUser(this.props.user)
+    }
+
     closeModalHandler = () => {
         this.setState({
             isShowingUser: false,
@@ -78,7 +84,10 @@ class UserCard extends React.Component {
                     </span>
                     
                 </div>
-                <span className="edit-icon" onClick={this.editUser}><i className="edit icon"></i></span>
+                <div className="action-icon">
+                    <span onClick={this.editUser}><i className="edit icon"></i></span>
+                    <span onClick={this.deleteUser}><i className="delete icon"></i></span>
+                </div>
                 <button className="ui button" onClick={this.selectUser}>more...</button>
             </div>
             {this.renderUserModal()}
@@ -88,4 +97,8 @@ class UserCard extends React.Component {
     }
 }
 
-export default UserCard;
+const mapStateToProps = (state) => {
+    return { users: state.users}
+}
+
+export default connect(mapStateToProps, { deleteUser })(UserCard);

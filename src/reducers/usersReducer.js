@@ -1,4 +1,4 @@
-import { FETCH_USERS, UPDATE_USER, ADD_USER } from '../constants';
+import { FETCH_USERS, UPDATE_USER, ADD_USER, DELETE_USER } from '../constants';
 
 export default (state = [], action) => {
     switch(action.type) {
@@ -9,9 +9,10 @@ export default (state = [], action) => {
         case UPDATE_USER:
             return state.map(
                 user => {
-                    debugger
                     return (user.cell === action.payload.cell ? { ...user, ...action.payload } : user)}
               );
+        case DELETE_USER:
+            return state.filter(user => user.cell !== action.payload.cell);
         default:
             return state;
     }
